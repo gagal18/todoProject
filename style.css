@@ -88,11 +88,13 @@ ul li:first-child{
   transform: translate(0, -50%);
   cursor: pointer;
 }
-.hideBtn{
-  display: none;
-}
-.showBtn{
-  display: block;
+.save{
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
 }
 
 #noTodo{

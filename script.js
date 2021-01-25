@@ -26,8 +26,8 @@ function setElements(){
         arr.forEach(() => {
             todoList.innerHTML = "";
             for (var i = 0; i < arr.length; i++)
-            todoList.innerHTML +=`<li id='${i}' class="liE" >${arr[i]}<span class="remove"  onclick = "removeEl(${i})"><img src="/trash.png" alt="">
-            </span><span class="edit"  onclick = "editEl(${i})"><img src="/edit.png" alt=""></span></li>`
+            todoList.innerHTML +=`<li id='${i}' class="liE" ><span id="a${i}">${arr[i]}</span><span class="remove"  onclick = "removeEl(${i})"><img src="/trash.png" alt="">
+            </span><span class="edit"  onclick = "editEl(${i})"><img src="/edit.png" alt=""></span><span class="save" onclick = "saveEl(${i})"><img src="/save.png" alt=""></span></li>`
             
     })}else{
       todoList.innerHTML = ""
@@ -48,7 +48,7 @@ function removeEl(index){
 function editEl(index){
     var i = index
     re(i);
-    document.getElementById(i).contentEditable = 'true'
+    document.getElementById("a"+i).contentEditable = 'true'
 }
 function re(i){
     var newList = document.getElementById(i).innerText
@@ -60,6 +60,9 @@ function re(i){
       localStorage.setItem("list", JSON.stringify(arr));
     }
     setElements();
+}
+function saveEl(i){
+  document.getElementById("a"+i).contentEditable = 'false'
 }
 //EVENT LISTENERS
 todoBtn.addEventListener("click",todoNewElement)
