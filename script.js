@@ -63,6 +63,11 @@ function re(i){
 }
 function saveEl(i){
   document.getElementById("a"+i).contentEditable = 'false'
+  if (localStorage.getItem("list") == null) {
+    localStorage.setItem("list", JSON.stringify(arr));
+  } else {
+    localStorage.setItem("list", JSON.stringify(arr));
+  }
 }
 //EVENT LISTENERS
 todoBtn.addEventListener("click",todoNewElement)
