@@ -60,8 +60,6 @@ function re(i){
       localStorage.setItem("list", JSON.stringify(arr));
     }
     setElements();
-    todoInput.value = ''
-    document.getElementById(i).contentEditable = "false"
 }
 //EVENT LISTENERS
 todoBtn.addEventListener("click",todoNewElement)

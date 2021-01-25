@@ -78,6 +78,7 @@ ul li:first-child{
   top: 50%;
   left: 50%;
   transform: translate(0, -50%);
+  cursor: pointer;
 }
 .edit {
   margin-left: 20px;
@@ -85,6 +86,7 @@ ul li:first-child{
   height: 20px;
   top: 50%;
   transform: translate(0, -50%);
+  cursor: pointer;
 }
 .hideBtn{
   display: none;
