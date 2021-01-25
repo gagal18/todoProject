@@ -22,15 +22,17 @@ function todoNewElement(){
 }
 //LOOP THROUGH ELEMENTS IN THE ARR and write them as LI elements(WORKS)
 function setElements(){
-    noTodo.innerText = ""
-    arr.forEach(e => {
-        todoList.innerHTML = "";
-        for (var i = 0; i < arr.length; i++)
-        todoList.innerHTML +=`<li id='${i}' class="liE" >${arr[i]}<div class="opt"<span class="remove"  onclick = "removeEl(${i})"><img src="/trash.png" alt="">
-        </span><span class="edit"  onclick = "editEl(${i})"><img src="/edit.png" alt=""></span></div></li>`
-}
-)
-}
+    if(arr.length !== 0){
+        arr.forEach(() => {
+            todoList.innerHTML = "";
+            for (var i = 0; i < arr.length; i++)
+            todoList.innerHTML +=`<li id='${i}' class="liE" >${arr[i]}<span class="remove"  onclick = "removeEl(${i})"><img src="/trash.png" alt="">
+            </span><span class="edit"  onclick = "editEl(${i})"><img src="/edit.png" alt=""></span></li>`
+            
+    })}else{
+      todoList.innerHTML = ""
+    }
+    }
 //REMOVE THE SPECIFIED ELEMENT
 function removeEl(index){
         arr.splice(index, 1);
@@ -40,30 +42,26 @@ function removeEl(index){
           localStorage.setItem("list", JSON.stringify(arr));
         }
         setElements();
-      
+
 }
 //EDIT THE SPECIFIED ELEMENT
 function editEl(index){
-    todoBtnChange.classList.remove("hideBtn")
-    todoBtnChange.classList.add("showBtn")
-    todoBtn.classList.add("hideBtn")
     var i = index
-    todoBtnChange.addEventListener("click", function(i){
-    var newList = todoInput.value
-    arr.splice(index, 1, newList);
+    re(i);
+    document.getElementById(i).contentEditable = 'true'
+}
+function re(i){
+    var newList = document.getElementById(i).innerText
+    console.log(newList)
+    arr.splice(i, 1, newList);
     if (localStorage.getItem("list") == null) {
       localStorage.setItem("list", JSON.stringify(arr));
     } else {
       localStorage.setItem("list", JSON.stringify(arr));
     }
     setElements();
-    divNew.classList.add("noneNew")
-    divNew.classList.remove("showNew")
     todoInput.value = ''
-    todoBtnChange.classList.remove("showBtn")
-    todoBtnChange.classList.add("hideBtn")
-    todoBtn.classList.remove("hideBtn")
-})
+    document.getElementById(i).contentEditable = "false"
 }
 //EVENT LISTENERS
 todoBtn.addEventListener("click",todoNewElement)
