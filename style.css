@@ -64,6 +64,10 @@ ul li {
   justify-content: space-between;
 
 }
+.liE{
+  background-color: #7ee8fa;
+  background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+}
 ul li:first-child{
   margin-top: 50px;
 }
