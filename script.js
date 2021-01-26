@@ -49,6 +49,8 @@ function editEl(index){
     var i = index
     re(i);
     document.getElementById("a"+i).contentEditable = 'true'
+    document.getElementById("a" + i).focus();
+
 }
 function re(i){
     var newList = document.getElementById(i).innerText
