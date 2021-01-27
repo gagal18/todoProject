@@ -29,11 +29,9 @@ function setElements(){
             todoList.innerHTML +=`<li id="${i}" class="liE">
             <span id="a${i}">${arr[i]}</span>
             <div class="func">
-            <span class="remove" onclick="removeEl(${i})"
-              ><img src="/trash.png" alt="" /> </span
-            ><span class="edit" onclick="editEl(${i})"
-              ><img src="/edit.png" alt="" /></span
-            ><span class="save" onclick="saveEl(${i})"
+            <span class="edit" onclick="editEl(${i})"
+              ><img src="/edit.png" alt="" /></span><span class="remove" onclick="removeEl(${i})"
+              ><img src="/trash.png" alt="" /></span><span class="save" onclick="saveEl(${i})"
               ><img src="/save.png" alt=""
             /></span>
           </div>`
@@ -44,6 +42,10 @@ function setElements(){
     }
 //REMOVE THE SPECIFIED ELEMENT
 function removeEl(index){
+
+  // var click;
+
+  // click = !click
         arr.splice(index, 1);
         if (localStorage.getItem("list") == null) {
           localStorage.setItem("list", JSON.stringify(arr));
@@ -56,12 +58,6 @@ function removeEl(index){
 //EDIT THE SPECIFIED ELEMENT
 function editEl(index){
     var i = index
-    re(i);
-    document.getElementById("a"+i).contentEditable = 'true'
-    document.getElementById("a" + i).focus();
-
-}
-function re(i){
     var newList = document.getElementById(i).innerText
     arr.splice(i, 1, newList);
     if (localStorage.getItem("list") == null) {
@@ -75,7 +71,11 @@ function re(i){
         saveEl(i)
       }
     })
-}
+    document.getElementById("a"+i).contentEditable = 'true'
+    document.getElementById("a" + i).focus();
+    
+};
+
 function saveEl(i){
   document.getElementById("a"+i).contentEditable = 'false'
   var newList = document.getElementById(i).innerText
