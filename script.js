@@ -42,10 +42,6 @@ function setElements(){
     }
 //REMOVE THE SPECIFIED ELEMENT
 function removeEl(index){
-
-  // var click;
-
-  // click = !click
         arr.splice(index, 1);
         if (localStorage.getItem("list") == null) {
           localStorage.setItem("list", JSON.stringify(arr));
